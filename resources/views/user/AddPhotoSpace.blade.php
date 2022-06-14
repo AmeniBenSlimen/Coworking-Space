@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,7 +75,8 @@
 </div>
 
 
-<script src="assets/js/jquery-3.5.1.min.js"></script>
+<script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
+
 <script src="{{asset('assets/js/popper.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/moment.min.js')}}"></script>

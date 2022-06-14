@@ -15,7 +15,7 @@ body {
 }
 
 .full-screen-container {
-  background-image: url('images/bb.webp');
+ 
   height: 1100px;
   width: 100%;
   background-size: cover;
@@ -154,7 +154,7 @@ strong  {
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
-                                    <span cclass="alert alert-danger" role="alert">
+                                    <span class="alert alert-danger" role="alert">
                                         <strong>Compte déja existant</strong>
                                     </span>
                                 @enderror
@@ -174,7 +174,7 @@ strong  {
                                 @enderror
                             </div>
                         </div>
-                       
+                     
 
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>

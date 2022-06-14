@@ -77,7 +77,7 @@
 <div class="form-group">
 <label>Ajouter Photo</label>
 <div class="custom-file mb-3">
-<input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}" required autocomplete="photo" autofocus>
+<input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}"  autocomplete="photo" autofocus>
 </div>
 </div>
 </div>

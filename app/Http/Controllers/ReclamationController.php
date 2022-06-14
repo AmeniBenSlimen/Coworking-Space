@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Reclamation;
+use Illuminate\Support\Facades\Gate;
 
 class ReclamationController extends Controller
 {
@@ -14,6 +15,7 @@ class ReclamationController extends Controller
     }
     
     public function FormReclamationAdmin($id){
+        
         $user=User::where('id',$id)->first();
         return view ('user.FormReclamationAdmin',compact('user'));
     }
@@ -33,11 +35,13 @@ class ReclamationController extends Controller
     }
 
     public function ListeReclamation(){
+        
         $reclamation=Reclamation::all();
         return view('user.ListeReclamation',compact('reclamation'));
     }
 
     public function editReclamation($id){
+       
         $reclamation=Reclamation::findorFail($id);
         return view('user.editReclamation',compact('reclamation'));
     }
@@ -61,13 +65,16 @@ class ReclamationController extends Controller
     }
 
 
+    
     public function ListeReclamationTechnicien(){
+        
         $reclamation=Reclamation::all();
         return view('technicien.ListeReclamationTechnicien',compact('reclamation'));
     }
 
     public function attente($id)
    {
+    
         $reclamation = Reclamation::find($id);
         $reclamation->etat = 1 ;
         $reclamation->save();
@@ -76,6 +83,7 @@ class ReclamationController extends Controller
 
     public function accepter($id)
     {
+        
         $reclamation = Reclamation::find($id);
         $reclamation->etat = 2 ;
         $reclamation->save();
@@ -83,12 +91,16 @@ class ReclamationController extends Controller
      }
      public function destroyReclamation($id)
      {
+        if (! Gate::allows('destroyReclamation')) {
+            abort(403);
+        }
         $reclamation = Reclamation::find($id);
         $reclamation->delete();
         return redirect()->back();
      } 
      public function Archive()
      {
+       
          $reclamation = Reclamation::onlyTrashed()->get();
          return view('technicien.Archive')->with('reclamation',$reclamation);
      }

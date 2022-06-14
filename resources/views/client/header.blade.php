@@ -79,8 +79,8 @@
 								<h6> {{ Auth::user()->nom }} {{ Auth::user()->prenom }}</h6>
 								<p class="text-muted mb-0">{{ Auth::user()->role }}</p>
 							</div>
-						</div> <a class="dropdown-item" href="{{route('ProfileAdmin' ,Auth::user()->id)}}">Mon Profile</a>
-						 <a class="dropdown-item" href="{{route('FormUpdatePw' ,Auth::user()->id)}}">Changer mot de passe </a> 
+						</div> <a class="dropdown-item" href="{{route('ProfileClient' ,Auth::user()->id)}}">Mon Profile</a>
+						 <a class="dropdown-item" href="{{route('FormUpdatePwClient' ,Auth::user()->id)}}">Changer mot de passe </a> 
 						 
 						 
 						 <a class="dropdown-item" href="{{ route('logout') }}"

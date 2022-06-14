@@ -4,11 +4,11 @@
 			<div class="sidebar-inner slimscroll">
 				<div id="sidebar-menu" class="sidebar-menu">
 					<ul>
-						<li> <a href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
+						<li> <a href="/stats"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
 						<li class="list-divider"></li>
 						<li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Utilisateurs </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="{{route('ListeUserAdmin')}}"> Administrateur </a></li>
+								
 								<li><a href="{{route('ListeEquipe')}}"> Equipes </a></li>
 								<li><a href="{{route('ListeTechnicien')}}"> Technicien </a></li>
                         <li><a href="{{route('ListeClient')}}"> Client </a></li>
@@ -63,7 +63,27 @@
 						</li>
 	
 								
+						<li class="submenu"> <a href="#"><i class="fas fa-envelope"></i> <span> Reservation </span> <span class="menu-arrow"></span></a>
+									<ul class="submenu_class" style="display: none;">
+										
+										<li><a href="{{route('ListeDemandeR')}}"> Liste des Reservation </a></li>
+										<li><a href="{{route('ArchiveReservation')}}"> Archive </a></li>
+										
+									</ul>
+								</li>
 						
+						</li>
+
+						<li class="submenu"> <a href="#"><i class="fas fa-envelope"></i> <span> Partenaire </span> <span class="menu-arrow"></span></a>
+									<ul class="submenu_class" style="display: none;">
+										
+										<li><a href="{{route('listePartenaire')}}"> Liste des Partenaires </a></li>
+										
+										
+									</ul>
+								</li>
+						
+						</li>
 						
 						
 						

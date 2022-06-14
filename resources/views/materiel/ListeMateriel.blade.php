@@ -71,7 +71,7 @@
 												<th>Nom Matériel </th>
 												<th>Prix</th>
 												<th>Description</th>
-												<th class="text-right" style="margin-left:200px">Actions</th>
+												<th  >Actions</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -85,8 +85,8 @@
 												<td>{{$m->nom_m}}</td>
                                                 <td>{{$m->prix}}</td>
                                                 <td>{{$m->description}}</td>
-												<td><a href="{{route('FormeditMateriel',$m->id)}}" class="btn btn-primary">Modifier</a></td>
-                                                <td><a class="btn btn-xs btn-danger" href="{{route('DeleteMaterielBD',$m->id)}}">Supprimer</a> </td>
+												<td><a href="{{route('FormeditMateriel',$m->id)}}" class="btn btn-primary">Modifier</a>
+                                                <a class="btn btn-xs btn-danger" href="{{route('DeleteMaterielBD',$m->id)}}" onclick="return confirm('vous etes sur de supprimer cet materiel ?');" >Supprimer</a> </td>
 												
 											</tr>
 											

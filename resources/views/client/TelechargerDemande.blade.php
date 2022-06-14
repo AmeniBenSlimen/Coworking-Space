@@ -54,9 +54,12 @@
                     Date de Création: {{$abonnement->created_at}}<br />
                     Résultat : Accepter
                 </p>
+                
             </div>
+
             <div class="pdf-body">
                 <div id="grid"></div>
+               
                 <p class="signature">
                     Signature: ________________ <br /><br />
                     Date: {{$abonnement->deleted_at}}
@@ -78,8 +81,9 @@
         }
     </style>
 
-    <
+    
     <style>
+
         .pdf-page {
             margin: 0 auto;
             box-sizing: border-box;

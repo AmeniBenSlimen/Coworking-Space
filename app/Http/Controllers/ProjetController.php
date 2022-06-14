@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Projet;
 use App\Models\PhotoProjet;
 use Illuminate\Support\Arr;
-
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class ProjetController extends Controller
@@ -16,7 +16,7 @@ class ProjetController extends Controller
    }
    
     public function FormProjet(){
-        
+       
         return view('user.FormProjet');
         
     }
@@ -52,6 +52,7 @@ class ProjetController extends Controller
 
     }
     public function listeProjet(){
+       
         $pp = Projet :: all();
         $tab = array ();
         
@@ -77,13 +78,14 @@ class ProjetController extends Controller
     
     }
    public function Editprojet($id){
-   
+    
     $projet=Projet::where('id',$id)->first();
     return view('user.FormeditProjet',compact('projet'));
 }   
    public function UpdateProjet(Request $request){
     $projet=Projet::where('id',$request->id)->first();
     $image=PhotoProjet::where('id',$request->id)->first();
+    dd($projet);
     $projet->date_debut=$request->date_debut;
     $projet->date_fin=$request->date_fin;
     $projet->intitule=$request->intitule;
@@ -102,19 +104,22 @@ class ProjetController extends Controller
         
       
     }
+    
     $projet->update();
     $image->update();
-    return redirect()->route('listeProjet')->with('success','modification  effectue avec success');
+    return redirect()->back()->with('success','modification  effectue avec success');
 
    }
 
    public function ListeImageProjet($id){
+    
     $projet=Projet::where('id',$id)->first();
     //$image=PhotoProjet::Join('projets')->select('url')->where('projets.id','=',DB::raw('photo_projets.projet_id'))->get();  
       dd($image);
     return view('user.ListeImageProjet',compact('projet','image'));
    }
    public function DeletProjet($id){
+   
     $projet=Projet::where('id',$id)->first();
     $projet->delete();
     return redirect()->route('listeProjet')->with('success', 'Projet supprimer avec succèss');

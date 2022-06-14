@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Equipe;
+use Illuminate\Support\Facades\Gate;
 
 class EquipeController extends Controller
 {
     
     
     public function FormEquipe(){
-        
+       
         return view ('user.AddEquipe');
     }
 
@@ -44,7 +45,8 @@ class EquipeController extends Controller
     }
 
     public function ListeEquipe(){
-        
+       
+
         $equipe = Equipe :: all();
         return view('user.listeEquipe',compact('equipe'));
     }
@@ -52,7 +54,8 @@ class EquipeController extends Controller
 
     public function UpdateEquipe($id)
             {
-                    
+                
+
                 $equipe=Equipe::where('id',$id)->first();
                     
                 return view('user.updateEquipeForm',compact('equipe'));
@@ -88,7 +91,8 @@ class EquipeController extends Controller
 
         public function deleteMembreBD(Request $request)
         {
-        
+          
+
             $equipe=Equipe::where('id',$request->id)->first();
             $equipe->delete();
     

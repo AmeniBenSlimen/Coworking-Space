@@ -14,6 +14,7 @@ class AbonnementController extends Controller
     }
     public function ListeAbonnement(){
         $abonnement=Abonnement::All();
+        //dd($abonnement);
         return view('user.ListeAbonnement',compact('abonnement'));
     }
 
@@ -32,6 +33,14 @@ class AbonnementController extends Controller
         $abonnement->save();
         return redirect()->back();
      }
+
+     public function supprimerAb($id)
+     {
+         $abonnement = Abonnement::find($id);
+         $abonnement->etat = 3;
+         $abonnement->save();
+         return redirect()->back();
+      }
 
      public function destroyAbonnement($id)
      {

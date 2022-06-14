@@ -21,7 +21,7 @@
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Réservation </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="">Liste des Réservations </a></li>
+								<li><a href="{{route('listeReservationTechnicien',Auth::user()->id)}}">Liste des Réservations </a></li>
 								
 							</ul>
 						</li>

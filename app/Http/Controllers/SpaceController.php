@@ -132,6 +132,41 @@ class SpaceController extends Controller
         $space=Space::where('id',$id)->first();
         return view('user.AddPhotoSpace',compact('space'));
     }
+
+    //-----------------------***AFFICHAGE***------------------------//
+
+    public function getSpace(){
+        $space = Space :: all();
+        
+        
+        $tab = array ();
+        
+        foreach ($space as $value){
+            $img=PhotoEspace :: where('space_id', $value->id)->get()->toArray();
+            $images=array();
+        foreach($img as $image){
+            $images[0]=$image['image_espace'];
+     }
+     $spaces=array(
+        "id"=>$value->id,
+        "nom_space"=>$value->nom_space,
+        "description_space"=>$value->description_space,
+        "images"=>$images
+     );
+     $tab[]=$spaces;
+   
+    } 
+  // $image=PhotoEspace::limit(1)->get();
+  
+        return view('welcome',compact('tab','images'));
+    }
+
+    public function DetailSpace($id){
+        $image=PhotoEspace::where('space_id','=',$id)->get();
+        $space=Space::where('id',$id)->first();
+        
+    return view('DetailSpace',compact('image','space'));
+    }
 }
 
 

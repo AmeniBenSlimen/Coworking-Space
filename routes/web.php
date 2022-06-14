@@ -51,10 +51,14 @@ Route::get('/FormeditClient/{id}','App\Http\Controllers\UserController@FormeditC
 Route::post('/FormeditClientBD','App\Http\Controllers\UserController@FormeditClientBD')->name('FormeditClientBD');
 Route::get('/DeleteClient/{id}','App\Http\Controllers\UserController@DeleteClient')->name('DeleteClient');
 Route::get('/ProfileAdmin/{id}','App\Http\Controllers\UserController@ProfileAdmin')->name('ProfileAdmin');
+Route::get('/FormUpdateProfile/{id}','App\Http\Controllers\UserController@FormUpdateProfile')->name('FormUpdateProfile');
 Route::post('/updateProfileUserBD','App\Http\Controllers\UserController@updateProfileUserBD')->name('updateProfileUserBD');
 Route::get('/ListeAbonnement','App\Http\Controllers\AbonnementController@ListeAbonnement')->name('ListeAbonnement');
 Route::get('/attenteAb/{id}','App\Http\Controllers\AbonnementController@attenteAb')->name('attenteAb');
 Route::get('/accepterAb/{id}','App\Http\Controllers\AbonnementController@accepterAb')->name('accepterAb');
+Route::get('/supprimerAb/{id}','App\Http\Controllers\AbonnementController@supprimerAb')->name('supprimerAb');
+
+
 Route::get('/destroyAbonnement/{id}','App\Http\Controllers\AbonnementController@destroyAbonnement')->name('destroyAbonnement');
 Route::get('/ArchiveAbonnement','App\Http\Controllers\AbonnementController@ArchiveAbonnement')->name('ArchiveAbonnement');
 Route::get('/FormProjet','App\Http\Controllers\ProjetController@FormProjet')->name('FormProjet');
@@ -97,10 +101,15 @@ Route::post('/addImageProjetBD','App\Http\Controllers\ProjetController@addImageP
                              //ROUTE DES MEMBRE//
 Route::get('/membreHome','App\Http\Controllers\HomeController@membreHome')->name('membreHome');
 Route::get('/ProfileMembre/{id}','App\Http\Controllers\MembreController@ProfileMembre')->name('ProfileMembre');
+Route::get('/FormUpdateProfileMembre/{id}','App\Http\Controllers\MembreController@FormUpdateProfileMembre')->name('FormUpdateProfileMembre');
+Route::post('/updateProfileMembreBD','App\Http\Controllers\MembreController@updateProfileMembreBD')->name('updateProfileMembreBD');
+Route::get('/FormUpdatePwMembre','App\Http\Controllers\MembreController@FormUpdatePwMembre')->name('FormUpdatePwMembre');
+Route::post('/FormUpdatePwMembreBD','App\Http\Controllers\MembreController@FormUpdatePwMembreBD')->name('FormUpdatePwMembreBD');
 //--------------------------------------------------------------------------------------------------------------//
                              //ROUTE DES CONTACT//
-Route::get('/Contacter','App\Http\Controllers\ContactController@Contacter')->name('Contacter');
-Route::post('/contacterBD','App\Http\Controllers\ContactController@contacterBD')->name('contacterBD');
+Route::get('/Contacter','App\Http\Controllers\TestMail@Contacter')->name('Contacter');
+Route::post('/contacterBD','App\Http\Controllers\TestMail@contacterBD')->name('contacterBD');
+Route::post('/sendMailAbonnement','App\Http\Controllers\Abonnement@sendMailAbonnement')->name('sendMailAbonnement');
 //--------------------------------------------------------------------------------------------------------------//
                              //ROUTE DES ADMIN Passe Reclamation//
 Route::get('/FormReclamationAdmin/{id}','App\Http\Controllers\ReclamationController@FormReclamationAdmin')->name('FormReclamationAdmin');
@@ -116,18 +125,28 @@ Route::get('/attente/{id}','App\Http\Controllers\ReclamationController@attente')
 Route::get('/accepter/{id}','App\Http\Controllers\ReclamationController@accepter')->name('accepter');
 Route::get('/Archive','App\Http\Controllers\ReclamationController@Archive')->name('Archive');
 Route::get('/destroyReclamation/{id}','App\Http\Controllers\ReclamationController@destroyReclamation')->name('destroyReclamation');
-
+Route::get('/ProfileTechnicien/{id}','App\Http\Controllers\TechnicienController@ProfileTechnicien')->name('ProfileTechnicien');
+Route::get('/FormUpdateProfileT/{id}','App\Http\Controllers\TechnicienController@FormUpdateProfileT')->name('FormUpdateProfileT');
+Route::post('/updateProfilethechnicien','App\Http\Controllers\TechnicienController@updateProfilethechnicien')->name('updateProfilethechnicien');
+Route::get('/listeReservationTechnicien','App\Http\Controllers\TechnicienController@listeReservationTechnicien')->name('listeReservationTechnicien');
+Route::get('/FormUpdateProfileTechnicien/{id}','App\Http\Controllers\TechnicienController@FormUpdateProfileTechnicien')->name('FormUpdateProfileTechnicien');
+Route::post('/updateProfileTechnicienBD','App\Http\Controllers\TechnicienController@updateProfileTechnicienBD')->name('updateProfileTechnicienBD');
+Route::get('/FormUpdatePwTechnicien','App\Http\Controllers\TechnicienController@FormUpdatePwTechnicien')->name('FormUpdatePwTechnicien');
+Route::post('/FormUpdatePwTechnicienBD','App\Http\Controllers\TechnicienController@FormUpdatePwTechnicienBD')->name('FormUpdatePwTechnicienBD');
 //--------------------------------------------------------------------------------------------------------------//
                              //ROUTE DES CLIENT //
 Route::get('/AbonnementForms/{id}','App\Http\Controllers\ClientController@AbonnementForms')->name('AbonnementForms');
 Route::post('/AbonnementFormsBD','App\Http\Controllers\ClientController@AbonnementFormsBD')->name('AbonnementFormsBD');
-Route::get('/ConsulterDemandeA/{id}','App\Http\Controllers\ClientController@ListeDemandeA')->name('ConsulterDemandeA');
+Route::get('/ListeDemandeA','App\Http\Controllers\ClientController@ListeDemandeA')->name('ListeDemandeA');
 Route::get('/editAbonnement/{id}','App\Http\Controllers\ClientController@editAbonnement')->name('editAbonnement');
 Route::Post('/UpdateAbonnement/{id}','App\Http\Controllers\ClientController@UpdateAbonnement')->name('UpdateAbonnement');
 Route::get('/FormReservation/{id}','App\Http\Controllers\ReservationController@FormReservation')->name('FormReservation');
 Route::get('/TelechargerDemande/{id}','App\Http\Controllers\ClientController@TelechargerDemande')->name('TelechargerDemande');
-
-
+Route::post('/updateProfileClientBD','App\Http\Controllers\ClientController@updateProfileClientBD')->name('updateProfileClientBD');
+Route::get('/FormUpdateProfileClient/{id}','App\Http\Controllers\ClientController@FormUpdateProfileClient')->name('FormUpdateProfileClient');
+Route::get('/ProfileClient/{id}','App\Http\Controllers\ClientController@ProfileClient')->name('ProfileClient');
+Route::get('/FormUpdatePwClient','App\Http\Controllers\ClientController@FormUpdatePwClient')->name('FormUpdatePwClient');
+Route::post('/FormUpdatePwClientBD','App\Http\Controllers\ClientController@FormUpdatePwClientBD')->name('FormUpdatePwClientBD');
 
 //--------------------------------------------------------------------------------------------------------------//
                              //ROUTE DES Association //
@@ -148,6 +167,7 @@ Route::get('/FormEditPhotoSpace/{id}','App\Http\Controllers\SpaceController@Form
 Route::post('/UpdatePhotoSpaceBD','App\Http\Controllers\SpaceController@UpdatePhotoSpaceBD')->name('UpdatePhotoSpaceBD');
 Route::get('/DeletePhotoSpaceBD/{id}','App\Http\Controllers\SpaceController@DeletePhotoSpaceBD')->name('DeletePhotoSpaceBD');
 Route::get('/AddPhotoSpace/{id}','App\Http\Controllers\SpaceController@AddPhotoSpace')->name('AddPhotoSpace');
+
 //--------------------------------------------------------------------------------------------------------------//
                              //ROUTE ERREUR /
 Route::get('/erreur','App\Http\Controllers\UserController@construct')->name('erreur');
@@ -164,3 +184,36 @@ Route::get('/DeleteMaterielBD/{id}','App\Http\Controllers\MaterielController@Del
 
 Route::get('/FormeditProjet/{id}','App\Http\Controllers\ProjetController@Editprojet')->name('FormeditProjet');
 Route::get('/ListeImageProjet/{id}','App\Http\Controllers\ProjetController@ListeImageProjet')->name('ListeImageProjet');
+//--------------------------------------------------------------------------------------------------------------//
+                             //ROUTE DES partenaires /
+Route::get('/formPartenaire','App\Http\Controllers\PartenaireController@formPartenaire')->name('formPartenaire');
+Route::Post('/addPartenaireBD','App\Http\Controllers\PartenaireController@addPartenaireBD')->name('addPartenaireBD');
+Route::get('/listePartenaire','App\Http\Controllers\PartenaireController@listePartenaire')->name('listePartenaire');
+Route::get('/EditPartenaire/{id}','App\Http\Controllers\PartenaireController@EditPartenaire')->name('EditPartenaire');
+Route::post('/UpdatePartenaire/{id}','App\Http\Controllers\PartenaireController@UpdatePartenaire')->name('UpdatePartenaire');
+Route::get('/DeletePartenaire/{id}','App\Http\Controllers\PartenaireController@DeletePartenaire')->name('DeletePartenaire');
+
+//--------------------------------------------------------------------------------------------------------------//
+                             //ROUTE AFFICHAGE /
+Route::get('/','App\Http\Controllers\AffichageController@getSpace')->name('getSpace');
+Route::get('/DetailSpace/{id}','App\Http\Controllers\AffichageController@DetailSpace')->name('DetailSpace');
+Route::get('/test','App\Http\Controllers\AffichageController@test')->name('test');
+Route::get('/FormReservation/{id}','App\Http\Controllers\ReservationController@FormReservation')->name('FormReservation');
+Route::get('/viewProjet','App\Http\Controllers\AffichageController@viewProjet')->name('viewProjet');
+//--------------------------------------------------------------------------------------------------------------//
+                             //ROUTE DES reservation /
+ Route::Post('/Reserver','App\Http\Controllers\ReservationController@Reserver')->name('Reserver');
+ Route::get('/listeReservation','App\Http\Controllers\ReservationController@listeReservation')->name('listeReservation');
+ Route::get('/ListeDemandeR','App\Http\Controllers\ReservationController@ListeDemandeR')->name('ListeDemandeR');
+ Route::get('/EditReservation/{id}','App\Http\Controllers\ReservationController@EditReservation')->name('EditReservation');
+ Route::Post('/UpdateReservation/{id}','App\Http\Controllers\ReservationController@UpdateReservation')->name('UpdateReservation');
+ Route::get('/DeleteReservationBD/{id}','App\Http\Controllers\ReservationController@DeleteReservationBD')->name('DeleteReservationBD');
+ Route::get('/attenteRE/{id}','App\Http\Controllers\ReservationController@attenteRE')->name('attenteRE');
+ Route::get('/accepterRE/{id}','App\Http\Controllers\ReservationController@accepterRE')->name('accepterRE');
+ Route::get('/deleteReservationA/{id}','App\Http\Controllers\ReservationController@deleteReservationA')->name('deleteReservationA');
+ Route::get('/destroyReservation/{id}','App\Http\Controllers\ReservationController@destroyReservation')->name('destroyReservation');
+ Route::get('/ArchiveReservation','App\Http\Controllers\ReservationController@ArchiveReservation')->name('ArchiveReservation');
+
+
+
+ 

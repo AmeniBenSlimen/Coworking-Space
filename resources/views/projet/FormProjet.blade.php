@@ -50,14 +50,14 @@
 <div class="row formtype">
 <div class="col-md-4">
 <div class="form-group">
-<label>Date Début</label>
-<input type="date" name="date_debut" id="date_debut" class="form-control @error('date_debut') is-invalid @enderror" required autocomplete="date_debut" autofocus>
+<label for="checkin-date">Date Début</label>
+<input type="date" id="checkin-date" name="date_debut"  required>
 </div>
 </div>
 <div class="col-md-4">
 <div class="form-group">
-<label>Date Fin</label>
-<input type="date" name="date_fin" id="date_fin" class="form-control @error('date_fin') is-invalid @enderror" required autocomplete="date_fin" autofocus>
+<label for="checkout-date">Date Fin</label>
+<input type="date" name="date_fin" id="checkout-date"required>
 </div>
 </div>
 <div class="col-md-4">
@@ -112,5 +112,30 @@
 			});
 		});
 	</script>
+	
+
 </body>
 </html>
+<script>
+    var currentDateTime = new Date();
+var year = currentDateTime.getFullYear();
+var month = (currentDateTime.getMonth() + 1);
+var date = (currentDateTime.getDate() + 1);
+
+if(date < 10) {
+  date = '0' + date;
+}
+if(month < 10) {
+  month = '0' + month;
+}
+
+var dateTomorrow = year + "-" + month + "-" + date;
+var checkinElem = document.querySelector("#checkin-date");
+var checkoutElem = document.querySelector("#checkout-date");
+
+checkinElem.setAttribute("min", dateTomorrow);
+
+checkinElem.onchange = function () {
+    checkoutElem.setAttribute("min", this.value);
+}
+</script>

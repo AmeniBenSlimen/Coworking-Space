@@ -14,9 +14,6 @@ class UserController extends Controller
     {
         $this->middleware('auth');
         
-       /*  if(!( Auth::user()->role === 'admin')){
-            return view('erreur');
-        } */
     }
     
    
@@ -38,7 +35,7 @@ class UserController extends Controller
             'prenom' => ['required', 'string', 'max:255'],
             'date_naissance' => ['required', 'date'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'telephone' => ['required', 'integer', 'min:8'],
+            'telephone' => ['required', 'integer'],
             'role' => ['string', 'max:255'],
             'photo' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -84,7 +81,14 @@ class UserController extends Controller
        
     }
 
-    public function updateProfileUserBD (Request $request){
+    public function FormUpdateProfile($id){
+        $admin = User::where('id',$id)->first();
+       
+        return view('user.FormUpdateProfile',compact('admin'));
+       
+    }
+
+    public function updateProfileUserBD(Request $request){
         
         $admin = User::where('id',$request->id)->first();
         $admin->nom=$request->nom;
@@ -104,8 +108,8 @@ class UserController extends Controller
             }
 
             $admin->update();
-            
-            return redirect()->route('ProfileAdmin')->with('success', 'Profile Modifier avec succèss');;
+           
+            return redirect()->back()->with('success', 'Profile Modifier avec succèss');;
     }
 
 

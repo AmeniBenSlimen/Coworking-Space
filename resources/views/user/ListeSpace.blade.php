@@ -84,7 +84,7 @@
                                                 <td>{{$t['description_space']}}</td>
                                                 <td>{{$compteur}}</td>
 												<td><a href="{{route('FormeditSpace',$t['id'])}}" class="btn btn-primary">Modifier</a></td>
-                                                <td><a class="btn btn-xs btn-danger" href="{{route('DeleteSpaceBD',$t['id'])}}">Supprimer</a> </td>
+                                                <td><a class="btn btn-xs btn-danger" href="{{route('DeleteSpaceBD',$t['id'])}}"  onclick="return confirm('bous etes sur de supprimer cet espace ?');" >Supprimer</a> </td>
 												<td><a class="btn btn-xs btn-danger" style="background-color:#3498DB;border:#3498DB" href="{{route('FormAddMateriel',$t['id'])}}">Affecter Matériel</a> </td>
 												<td><ul><li><a href="{{route('AddPhotoSpace',$t['id'])}}">Ajouter Photo</a></li>
 												<li><a href="{{route('VoirPhotoSpace',$t['id'])}}">Consulter Liste Photo</a></li><ul> </td>

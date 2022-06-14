@@ -87,6 +87,7 @@ body{
     padding: 10px 30px;
     box-sizing: border-box;
 }
+
 .container .nav ul.menu li:hover a,.container .nav ul.menu li a.color{
     background: #FFC300;
 }
@@ -137,6 +138,9 @@ body{
         padding: 0;
         height: auto;
      }
+     img {
+  border-radius: 50%;
+}
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -146,15 +150,15 @@ body{
  <div class="container">
             <div class="nav">
             
-                  <img src="https://cdn0.iconfinder.com/data/icons/social-media-2091/100/social-32-512.png">
+<img src="images/cowgrow.jpg"  width="10px" height="100px">
                   
-                  <ul class="menu" style="margin-left:400px">
-                     <li><a href="{{ route('welcome')}}">Home</a></li> 
+                  <ul class="menu" style="margin-left:400px">                  
+                     <li><a href="{{url('/')}}">Acceuil</a></li> 
                     
-                     <li><a href="#">About</a></li> 
+                     <li><a href="#">A propos</a></li> 
                      <li><a href="{{route('viewProjet')}}">Projet</a></li> 
                      <li><a href="{{route('viewEquipe')}}">Equipe</a></li> 
-                     <li><a href="{{route('Contacter')}}">Contacter</a></li>
+                     <li><a href="{{route('Contacter')}}">Contacter Nous</a></li>
                      @if (Route::has('login'))
                      @auth
                      @if (Auth::user()->role=== 'admin')

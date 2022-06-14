@@ -105,7 +105,7 @@
 
                                                         </td>
                                                         <td>  <a href="{{route('editReclamation', $rc->id)}}" type="button" class="btn btn-primary"><i class="bi bi-pencil-fill">modifier</i></a> 
-                                                         <a href="{{route('deleteReclamationBD', $rc->id)}}"type="button" class="btn btn-danger" onClicK="return confirm('are you sure? ');"><i class="bi bi-trash-fill">supprimer</i></a></td>
+                                                         <a href="{{route('deleteReclamationBD', $rc->id)}}"type="button" class="btn btn-danger" onClicK="return confirm('vous etez sur de supprimer la reclamation ? ');"><i class="bi bi-trash-fill">supprimer</i></a></td>
                                                 
                                             </tr>
                                           

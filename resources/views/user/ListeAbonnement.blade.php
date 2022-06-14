@@ -89,9 +89,12 @@
 											</tr>
 										</thead>
 										<tbody>
-                                        @foreach($abonnement as $ab)
+                   
+                     @foreach($abonnement as $ab)
 											<tr>
-												<td>{{$ab->id}}</td>
+                    
+											                        	<td>{{$ab->id}}</td>
+                        
                                                 <td>{{$ab->nom}}</td>
                                                 <td>{{$ab->prenom}}</td>
                                                 <td>{{$ab->date_naissance}}</td>
@@ -115,15 +118,15 @@
                                                            @endif
                                                            @if ($ab->etat==2)
                                                            <button type="button" class="btn btn-success">
-                                                            <a href = "">traite </a>&nbsp;&nbsp;
+                                                            <a href = "">Accepter </a>&nbsp;&nbsp;
                                                            </button>
 
                                                            @endif
 
-
+                                                           <a href="{{route('supprimerAb',$ab->id)}}" class="btn btn-danger"  onclick="return confirm('ÊTES-VOUS SÛR DE BIEN VOULOIR supprimer ?');">supprimer</a>
                                                          
                                                         </td>
-                                                        <td>  <a href="{{route('destroyAbonnement', $ab->id)}}" type="button" class="btn btn-primary">Archive</a> </td> 
+                                                        <td>  <a href="{{route('destroyAbonnement', $ab->id)}}" type="button" onclick="return confirm('vous  etes sur de Archive cet abonnement ?');"  class="btn btn-primary">Archive</a> </td> 
                                                          
                                                 
                                             </tr>

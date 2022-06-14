@@ -20,6 +20,20 @@
 <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
+<style>
+    strong  {
+   animation-duration: .8s;
+   animation-name: clignoter;
+   animation-iteration-count: infinite;
+   transition: none;
+  color: 
+}
+@keyframes clignoter {
+  0%   { color:#000000; }
+  40%   {color:red; }
+  100% { opacity:#000000; }
+}
+</style>
 <body>
 
 @include('admin.header')
@@ -67,12 +81,20 @@
 <div class="form-group">
 <label>Adresse Mail</label>
 <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" required autocomplete="email" autofocus>
+@error('email')
+                                        <strong>vérifier votre adresse mail </strong>
+                                   
+                                @enderror
 </div>
 </div>
 <div class="col-md-4">
 <div class="form-group">
 <label>Nmuéro de teléphone</label>
-<input type="telephone" name="telephone" id="telephone" class="form-control @error('telephone') is-invalid @enderror" required autocomplete="telephone" autofocus>
+<input type="text" name="telephone" id="telephone" lenghth="8" class="form-control @error('telephone') is-invalid @enderror" required autocomplete="telephone" autofocus>
+@error('telephone')
+                                        <strong>ce champs contient 8 chiffre </strong>
+                                   
+                                @enderror
 </div>
 </div>
 <div class="col-md-4">
@@ -89,7 +111,7 @@
 <div class="form-group">
 <label>Ajouter Photo</label>
 <div class="custom-file mb-3">
-<input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}" required autocomplete="photo" autofocus>
+<input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}"  autocomplete="photo" autofocus>
 </div>
 </div>
 </div>

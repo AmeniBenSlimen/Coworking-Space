@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Abonnement;
-
+use Illuminate\Support\Facades\Hash;
+use Auth;
 
 class ClientController extends Controller
 {
@@ -18,6 +19,9 @@ class ClientController extends Controller
         return view ('client.espaceClient');
     }
 
+    public function AcceuilClient(){
+        return view('AcceuilClient');
+    }
     public function AbonnementForms($id){
         $client = User::where('id',$id)->first();
         return view ('client.AbonnementForms',compact('client'));
@@ -45,7 +49,7 @@ class ClientController extends Controller
     }
 
     public function ListeDemandeA($id){
-        $abonnement=Abonnement::all();
+        $abonnement=User::where('id',$id)->first();
         //dd($abonnement);
         return view('client.ConsulterDemandeA',compact('abonnement'));
     }
@@ -84,5 +88,76 @@ class ClientController extends Controller
         
     }
 
-   
+    ////////////////////////////Profile////////////////////////////////
+
+    public function ProfileClient($id){
+        $client = User::where('id',$id)->first();
+       
+        return view('client.ProfileClient',compact('client'));
+       
+    }
+
+    public function FormUpdateProfileClient($id){
+        $client = User::where('id',$id)->first();
+       
+        return view('client.FormUpdateProfileClient',compact('client'));
+       
+    }
+
+    public function updateProfileClientBD(Request $request){
+        
+        $admin = User::where('id',$request->id)->first();
+        $admin->nom=$request->nom;
+        $admin->prenom=$request->prenom;
+        $admin->date_naissance=$request->date_naissance;
+        $admin->email=$request->email;
+        $admin->telephone=$request->telephone;
+        $admin->photo=$request->photo;
+      
+        if ($request->hasfile('photo'))
+            {
+                $file=$request->file('photo');
+                $ext=$file->getClientOriginalExtension();
+                $filename=time().'.'.$ext;
+                $file->move('images/', $filename);
+                $admin->photo=$filename;
+            }
+
+            $admin->update();
+           
+            return redirect()->back()->with('success', 'Profile Modifier avec succèss');;
+    }
+
+    public function FormUpdatePwClient(){
+        
+       
+        return view ('client.FormUpdatePwClient');
+    }
+
+    public function FormUpdatePwClientBD(Request $request){
+        
+        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+                // The passwords matches
+                return redirect()->back()->with("error","Votre mot de passe actuel ne correspond pas au mot de passe.");
+            }
+    
+            if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+                // Current password and new password same
+                return redirect()->back()->with("error","Votre mot de passe actuel ne correspond pas au mot de passe.");
+            }
+    
+            $validatedData = $request->validate([
+                'current-password' => 'required|current_password',
+                'new-password' => 'required|string|min:8|confirmed',
+            ]);
+    
+            //Change Password
+            $user = Auth::user();
+            $user->password = bcrypt($request->get('new-password'));
+            $user->save();
+            
+    
+            return redirect()->back()->with("success","Mot de passe changé avec succès!");
+        
+    }
 }

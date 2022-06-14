@@ -16,7 +16,7 @@ body {
 }
 
 .full-screen-container {
-  background-image: url('images/bb.webp');
+  
   height: 100%;
   width: 100%;
   background-size: cover;

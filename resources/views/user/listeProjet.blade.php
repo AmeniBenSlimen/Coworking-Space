@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<title>Hotel Dashboard Template</title>
+	<title>Espace Administrateur</title>
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
@@ -72,7 +72,7 @@
 												<th>Date fin</th>
 												<th>Intitulé</th>
 												<th>description</th>
-												<th  colspan="3">Actions</th>
+												<th  colspan="2">Actions</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -85,12 +85,10 @@
                                                 <td>{{$t['date_fin']}}</td>
                                                 <td>{{$t['intitule']}}</td>
 												<td>{{$t['description']}}</td>
-												
-												
-                      
+
                  
-                           <td><a href="{{route('FormeditProjet' ,$t['id'])}}" class="btn btn-primary">Modifier</a></td>
-                           <td><a class="btn btn-xs btn-danger" href="{{route('DeletProjet',$t['id'])}}" >Supprimer</a> </td>
+                           <td><a href="{{route('FormeditProjet' ,$t['id'])}}" class="btn btn-primary">Modifier</a>
+                           <a class="btn btn-xs btn-danger" href="{{route('DeletProjet',$t['id'])}}"  onclick="return confirm('vous etes sur de supprimer cet projet ?');">Supprimer</a> </td>
 						   <td><a class="btn btn-xs btn-danger" style="background-color:#3BF911;border-color:#3BF911" href="{{route('ListeImageProjet',$t['id'])}}" >Voir Images</a> </td>
 											</tr>
                                            
