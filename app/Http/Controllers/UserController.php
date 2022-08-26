@@ -55,25 +55,6 @@ class UserController extends Controller
     }
 
     
-    public function ListeUserAdmin(){
-       
-        $admin = User::where('role','=','admin')->get();
-        return view('user.ListeUserAdmin',compact('admin'));
-    }
-
-
-
-    public function FormeditAdmin($id){
-        $admin=User::where('id',$id)->first();
-        return view ('user.FormeditAdmin',compact('admin'));
-    }
-
-
-   
-               
-   
-    
-    
     public function ProfileAdmin($id){
         $admin = User::where('id',$id)->first();
        
@@ -144,7 +125,7 @@ class UserController extends Controller
 
             $technicien->update();
             
-            return redirect()->route('ListeTechnicien')->with('success', 'Technicien Modifier avec succèss');
+            return redirect()->back()->with('success', 'Technicien Modifier avec succèss');
 
 
     }
@@ -188,7 +169,7 @@ class UserController extends Controller
 
             $client->update();
             
-            return redirect()->route('ListeClient')->with('success', 'Client Modifier avec succèss');
+            return redirect()->back()->with('success', 'Client Modifier avec succèss');
 
 
     }

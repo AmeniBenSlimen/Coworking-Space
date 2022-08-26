@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-<title>Espace Client</title>
+<title>Espace Technicien</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
@@ -22,8 +22,8 @@
 <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
 <body>
-		@include('client.header')
-		@include('client.menu')
+		@include('technicien.header')
+		@include('technicien.menu')
 		<div class="page-wrapper">
 			<div class="content container-fluid">
 				<div class="page-header">
@@ -92,10 +92,9 @@
                                                            <button type="button" class="btn btn-danger" >non résolu</button>
                                                             @elseif($reserve->etat==1)
                                                             <button type="button" class="btn btn-warning">en cours</button>
-                                                            @elseif($reserve->etat==2)
+                                                            @else
                                                             <button type="button" class="btn btn-success">Accepter</button> 
-                                                           @else
-                                                            <button type="button" class="btn btn-danger">refuser</button> 
+                                                          
                                                            @endif
                                                          
                                                         </td>

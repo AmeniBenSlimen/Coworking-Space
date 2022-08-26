@@ -87,7 +87,8 @@
 												<td>{{$eq->specialite}}</td>
                                                 <td>{{$eq->telephone_equipe}}</td>
                                                 <td><a href="{{route('UpdateEquipe',$eq->id)}}" class="btn btn-primary">Modifier</a></td>
-                                                <td><a class="btn btn-xs btn-danger btn-flat show_confirm" href="{{route('deleteMembreBD',$eq->id)}}" >Supprimer</a> </td>
+                                                <td><a class="btn btn-xs btn-danger" href="{{route('deleteMembreBD',$eq->id)}}" onclick="return confirm('vous etes sur supprimer cette Membre');" >Supprimer</a> </td>
+										
 											</tr>
 											@endforeach
 										</tbody>

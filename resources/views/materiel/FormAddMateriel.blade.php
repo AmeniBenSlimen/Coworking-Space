@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-<title>Ajouter Membre</title>
+<title>Espace Administrateur</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
@@ -107,15 +107,28 @@
 </div>
 
 
-<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-	<script src="assets/js/jquery-3.5.1.min.js"></script>
-	<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/moment.min.js"></script>
-	<script src="assets/js/select2.min.js"></script>
-	<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-	<script src="assets/js/script.js"></script>
+
+<script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
+
+<script src="{{asset('assets/js/popper.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/js/moment.min.js')}}"></script>
+<script src="{{asset('assets/js/select2.min.js')}}"></script>
+
+<script src="{{asset('assets/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
+<script src="{{asset('assets/plugins/raphael/raphael.min.js')}}"></script>
+
+<script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+
+<script src="{{asset('assets/js/script.js')}}"></script>
+<script>
+		$(function () {
+			$('#datetimepicker3').datetimepicker({
+				format: 'LT'
+
+			});
+		});
+	</script>
 </body>
 
 </html>

@@ -116,13 +116,14 @@
 </style>
 <body>
 @include('layouts.navbar')
-
+<br><br><br><br>
  <center>
 
-        <h2>
-        Meet our team
+        <h2 style="font-size:50px;font-family:'Monotype Corsiva','Apple Chancery','ITC Zapf Chancery','URW Chancery L',cursive;color:#036CA1">
+        NOTRE PROJETS
        </h2>
-       <center> <b class="italic" style="font-family : serif;font-size:20px;color:black">Les projets sont les promesses de l'imagination faites au coeur.
+       <br><br><br><br>
+       <center> <b class="" style="color:#0190D8;font-family:'Monotype Corsiva','Apple Chancery','ITC Zapf Chancery','URW Chancery L',cursive;font-size:50px">Les projets sont les promesses de l'imagination faites au coeur.
 </b></center> <br>
   <main>
     
@@ -133,20 +134,20 @@
                    
                     <div class="card-text fw-5" style="margin-right:470px"></div><br>
                     
-                    <div class="card-text fw-5" style="margin-right:100px;margin-left:100px;font-family : serif ;font-size:30px">{{$pro['intitule']}}</div><br><br>
+                    <div class="card-text fw-5" style="margin-right:100px;margin-left:100px;color:#014568 ;font-family:'Monotype Corsiva','Apple Chancery','ITC Zapf Chancery','URW Chancery L',cursive;font-size:30px">{{$pro['intitule']}}</div><br><br>
                     
                     <br>
-                    <div class="card-text fw-5" style="margin-right:100px;margin-left:100px;font-family : serif ;font-size:20px">{{$pro['description']}}</div><br><br>
+                    <div class="card-text fw-5" style="margin-right:100px;margin-left:100px;font-family:'Monotype Corsiva','Apple Chancery','ITC Zapf Chancery','URW Chancery L',cursive;font-size:30px">{{$pro['description']}}</div><br><br>
                     
                     <br>
                     @foreach($pro['images'] as $img)
               <img src="{{asset('images_projet/'.$img)}}" alt="" height="200px" width="200px">
                      @endforeach
-             
-                     <div class="card-text fw-5" style="margin-right:100px;margin-left:100px;font-family : serif ;font-size:15px">{{$pro['date_debut']}}</div><br><br>
+             <br><br>
+                     <div class="card-text fw-5" style="margin-right:100px;margin-left:100px;font-family : serif ;font-size:15px">Date Début de Projet : {{$pro['date_debut']}} , Date de Fin : {{$pro['date_fin']}}</div><br><br>
                     
                     <br>
-                    <div class="card-text fw-5" style="margin-right:100px;margin-left:100px;font-family : serif ;font-size:15px">{{$pro['date_fin']}}</div><br><br>
+                    <div class="card-text fw-5" style="margin-right:100px;margin-left:100px;font-family : serif ;font-size:15px"></div><br><br>
                     
                     <br>
             

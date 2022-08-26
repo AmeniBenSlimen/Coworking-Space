@@ -51,7 +51,7 @@
 <div class="page-header">
 <div class="row align-items-center">
 <div class="col">
-<h3 class="page-title mt-5">Ajouter Partenaire</h3>
+<h3 class="page-title mt-5">Edit  Partenaire</h3>
 </div>
 </div>
 </div>

@@ -101,7 +101,7 @@
                                                         </td>
                                                         
                                                           <td><a href="{{route('EditReservation', $reserve->id)}}" type="button" class="btn btn-primary">modifier</a>
-                                                          <a href="{{route('DeleteReservationBD', $reserve->id)}}" type="button" onclick="return confirm('vous avez sur  d annuler la reservation');" class="btn btn-danger">Annuler</a>
+                                                          <a href="{{route('DeleteReservationBD', $reserve->id)}}" type="button" onclick="return confirm('vous etes sur d''annuler cette reservation');" class="btn btn-danger">Annuler</a>
                                             </tr>
                                           
                                          

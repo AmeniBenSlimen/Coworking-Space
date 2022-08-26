@@ -85,7 +85,7 @@ class EquipeController extends Controller
 
             $equipe->update();
             
-            return redirect()->route('ListeEquipe')->with('success', 'Membre Modifier avec succèss');
+            return redirect()->back()->with('success', 'Membre Modifier avec succèss');
 
         }
 

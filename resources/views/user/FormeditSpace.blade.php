@@ -52,10 +52,11 @@
 <div class="page-header">
 <div class="row align-items-center">
 <div class="col">
-<h3 class="page-title mt-5">Ajouter un utilisateur</h3>
+<h3 class="page-title mt-5">Edit space</h3>
 </div>
 </div>
 </div>
+
 <div class="row">
 <div class="col-lg-12">
 <form method="POST" action="{{route('UpdateSpaceBD')}}">
@@ -63,6 +64,12 @@
  
 @csrf
 <input type="hidden" name="id" value="{{$space->id}}" />
+
+@if(session()->get('success'))
+                                        <div class="alert alert-success">
+                                        {{ session()->get('success') }}  
+                                        </div><br />
+                                    @endif
 <div class="col-md-4">
 <div class="form-group">
 <label>Nom Espace</label>
@@ -78,7 +85,7 @@
 <div class="col-md-4">
 <div class="form-group">
 <label class="profile_details_text">Photo :</label>
-<input type="file" name="image_espace" value="{{$space->image_espace}}" class="form-control" required>
+<input type="file" name="image_espace" value="{{$space->image_espace}}" class="form-control" required multiple>
 <div>
 </div>
 </div>

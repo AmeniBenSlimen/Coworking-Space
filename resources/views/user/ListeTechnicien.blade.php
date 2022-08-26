@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<title>Hotel Dashboard Template</title>
+	<title>Espace admin</title>
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
@@ -89,7 +89,7 @@
                                                 <td>{{$tech->role}}</td>
                                                 <td><img class="avatar-img rounded-circle" src="{{asset('images/'.$tech->photo)}}" alt="" height="100px" width="100px" ></td>
                                                 <td><a href="{{route('FormeditTechnicien' , $tech->id)}}" class="btn btn-primary">Modifier</a></td>
-                                                <td><a class="btn btn-xs btn-danger" href="{{route('DeleteTechnicien', $tech->id)}}" >Supprimer</a> </td>
+                                                <td><a class="btn btn-xs btn-danger" href="{{route('DeleteTechnicien', $tech->id)}}" onclick="return confirm('vous etes sur supprimer cette Technicien');" >Supprimer</a> </td>
 											</tr>
 											@endforeach
 										</tbody>

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<title>Hotel Dashboard Template</title>
+	<title>liste space</title>
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
@@ -48,7 +48,7 @@
 						<div class="col">
 							<div class="mt-5">
 								<h4 class="card-title float-left mt-2">Liste des Espace</h4>
-                                <a href="{{route ('addUser')}}" class="btn btn-primary float-right veiwbutton ">Ajouter Utilisateurs</a>
+                                <a href="{{route ('addUser')}}" class="btn btn-primary float-right veiwbutton ">Ajouter espace</a>
                             </div>
 						</div>
 					</div>

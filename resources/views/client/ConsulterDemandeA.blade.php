@@ -4,9 +4,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-<title>Espace Administrateur</title>
+<title>Espace Client</title>
 
-<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
 <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
 
@@ -71,21 +70,21 @@
 											</tr>
 										</thead>
 										<tbody>
-                                        
+                                        @foreach($abonnement as $abonnements)
                                        
 											<tr>
-												<td>{{$abonnement->id}}</td>
-                                                <td>{{$abonnement->nom}}</td>
-                                                <td>{{$abonnement->prenom}}</td>
-                                                <td>{{$abonnement->date_naissance}}</td>
-                                                <td>{{$abonnement->email}}</td>
-                                                <td>{{$abonnement->telephone}}</td>
-                                                <td><img class="avatar-img rounded-circle" src="{{asset('images/'. $abonnement->photo)}}" alt="" height="100px" width="100px" ></td>
+												<td>{{$abonnements->id}}</td>
+                                                <td>{{$abonnements->nom}}</td>
+                                                <td>{{$abonnements->prenom}}</td>
+                                                <td>{{$abonnements->date_naissance}}</td>
+                                                <td>{{$abonnements->email}}</td>
+                                                <td>{{$abonnements->telephone}}</td>
+                                                <td><img class="avatar-img rounded-circle" src="{{asset('images/'. $abonnements->photo)}}" alt="" height="100px" width="100px" ></td>
                                                 
                                                 <td>
-												@if ($abonnement->etat==0)
+												@if ($abonnements->etat==0)
                                                            <button type="button" class="btn btn-danger" >non résolu</button>
-                                                            @elseif($abonnement->etat==1)
+                                                            @elseif($abonnements->etat==1)
                                                             <button type="button" class="btn btn-warning">en cours</button>
                                                             @else
                                                             <button type="button" class="btn btn-success">traite</button> 
@@ -93,12 +92,12 @@
 
 
                                                         </td>
-                                                        <td>  <a href="{{route('editAbonnement', $abonnement->id)}}" type="button" class="btn btn-primary">modifier</a> 
+                                                        <td>  <a href="{{route('editAbonnement', $abonnements->id)}}" type="button" class="btn btn-primary">modifier</a> 
                                                        
                                             </tr>
                                           
                                          
-                                       
+                                       @endforeach
                                        
                                                
 										</tbody>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-<title>Ajouter Membre</title>
+<title></title>
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
@@ -52,7 +52,7 @@
 <div class="page-header">
 <div class="row align-items-center">
 <div class="col">
-<h3 class="page-title mt-5">Ajouter un utilisateur</h3>
+<h3 class="page-title mt-5">Ajouter un Reclamation</h3>
 </div>
 </div>
 </div>
@@ -69,44 +69,46 @@
 @endif
  
 <input type="hidden" name="user" value="{{$user->id}}">
+<input type="hidden" name="nom" value="{{Auth::user()->nom}}">
+
+<input type="hidden" name="materiel" value="{{$materiel->id}}">
+<input type="hidden" name="nom_materiel" value="{{$materiel->nom_m}}">
+
+<input type="hidden" name="code_serie" value="{{$materiel->code_serie}}">
+
 <div class="col-md-4">
 <div class="form-group">
 <label>Nom</label>
-<input id="nom" type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{$user->nom}}" required autocomplete="nom" autofocus>
+<input id="nom" type="text" class="form-control @error('nom') is-invalid @enderror" disabled name="nom" value="{{Auth::user()->nom}}" required autocomplete="nom" autofocus>
 </div>
 </div>
 
 <div class="col-md-4">
 <div class="form-group">
 <label>Code Série</label>
-<input  type="text" class="form-control @error('code_serie') is-invalid @enderror" name="code_serie" value="{{ old('code_serie') }}" required autocomplete="code_serie" autofocus>
+<input  type="text" class="form-control @error('code_serie') is-invalid @enderror" disabled name="code_serie" value="{{ $materiel->code_serie}}" required autocomplete="code_serie" autofocus>
 </div>
 </div>
 <div class="col-md-4">
 <div class="form-group">
 <label>Nom Matériel</label>
-<input type="text" name="nom_materiel" class="form-control @error('nom_materiel') is-invalid @enderror" required autocomplete="nom_materiel" autofocus>
+<input type="text" name="nom_materiel" class="form-control @error('nom_materiel') is-invalid @enderror" disabled  value="{{$materiel->nom_m}}" required autocomplete="nom_materiel" autofocus>
 </div>
 </div>
 <div class="col-md-4">
 <div class="form-group">
 <label>Description Panne </label>
-<textarea name="description_panne"  class="form-control @error('description_panne') is-invalid @enderror" required autocomplete="description_panne" autofocus></textarea>
+<textarea name="description_panne"  class="form-control @error('description_panne') is-invalid @enderror"  required autocomplete="description_panne" autofocus></textarea>
 </div>
 </div>
-
 <button type="submit" class="btn btn-primary">Ajouter</button>
 </div>
 </form>
 </div>
 </div>
-
-
 </div>
 </div>
-
 </div>
-
 
 <script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
 

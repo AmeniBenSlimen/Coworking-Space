@@ -150,12 +150,12 @@ body{
  <div class="container">
             <div class="nav">
             
-<img src="images/cowgrow.jpg"  width="10px" height="100px">
+<img src="images/adeco-2.jpg" style="width:80px" height="100px">
                   
                   <ul class="menu" style="margin-left:400px">                  
                      <li><a href="{{url('/')}}">Acceuil</a></li> 
                     
-                     <li><a href="#">A propos</a></li> 
+                     <li><a href="{{route('Association')}}">A propos</a></li> 
                      <li><a href="{{route('viewProjet')}}">Projet</a></li> 
                      <li><a href="{{route('viewEquipe')}}">Equipe</a></li> 
                      <li><a href="{{route('Contacter')}}">Contacter Nous</a></li>

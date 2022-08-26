@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-<title>Espace Client</title>
+<title>Espace admin</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
@@ -89,14 +89,14 @@
                                                 <td>
                                                            @if ($reserve->etat==0)
                                                            <button type="button" class="btn btn-danger">
-                                                            <a href = "{{route('attenteRE', ['id'=> $reserve->id])}}">non résolu </a>&nbsp;&nbsp;
+                                                            <a href = "{{route('attenteRE', ['id'=> $reserve->id])}}" onclick="return confirm('Vous etes sur de mettre cette réservation en cours ');">non résolu </a>&nbsp;&nbsp;
                                                            </button>
 
                                                            @endif
 
                                                            @if ($reserve->etat==1)
                                                            <button type="button" class="btn btn-warning">
-                                                            <a href = "{{route('accepterRE', ['id'=> $reserve->id])}}">en cours  </a>&nbsp;&nbsp;
+                                                            <a href = "{{route('accepterRE', ['id'=> $reserve->id])}}" onclick="return confirm('Vous etes sur de mettre cette réservation en état traiter ');">en cours  </a>&nbsp;&nbsp;
                                                            </button>
 
                                                            @endif
@@ -108,9 +108,9 @@
                                                            @endif
 
 
-                                                         <a href="{{route('deleteReservationA',$reserve->id)}}" class="btn btn-danger"  onclick="return confirm('ÊTES-VOUS SÛR DE BIEN VOULOIR supprimer ');">supprimer</a>
+                                                         <a href="{{route('DeleteReservationBD',$reserve->id)}}" class="btn btn-danger"  onclick="return confirm('Vous etes sur de vouloir supprimer cet réservation ');">supprimer</a>
                                                         </td>
-                                                        <td>  <a href="{{route('destroyReservation', $reserve->id)}}" type="button"  onclick="return confirm('ÊTES-VOUS SÛR DE BIEN VOULOIR archive CET reservation');" class="btn btn-primary">Archive</a> </td>
+                                                        <td>  <a href="{{route('destroyReservation', $reserve->id)}}" type="button"  onclick="return confirm('Vous etes de vouloir archiver cet réservation');" class="btn btn-primary">Archive</a> </td>
                                                                                                    
                                             </tr>
                                           

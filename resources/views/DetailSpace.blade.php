@@ -326,7 +326,8 @@ img {
  <div class="container">
             <div class="nav">
             
-                  <img src="https://cdn0.iconfinder.com/data/icons/social-media-2091/100/social-32-512.png">
+            <img src="public/images/adeco-2.jpg" style="width:80px" height="100px">
+
                   
                   <ul class="menu" style="margin-left:400px">
                      <li><a href="{{ url('/') }}">Home</a></li> 

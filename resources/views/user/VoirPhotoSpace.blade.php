@@ -58,7 +58,7 @@
                                                 <td>{{$img->id}}</td>
                                                 <td><img src="{{asset('images_espace/'.$img->image_espace)}}" alt="" height="200px" width="200px"></td>
                                                 <td><a href="{{route('FormEditPhotoSpace',$img->id)}}" class="btn btn-primary">Modifier</a></td>
-                                                <td><a class="btn btn-xs btn-danger" href="{{route('DeletePhotoSpaceBD',$img->id)}}">Supprimer</a> </td>
+                                                <td><a class="btn btn-xs btn-danger" onclick="return confirm('vous etes sur de supprimer cet Image ?');" href="{{route('DeletePhotoSpaceBD',$img->id)}}">Supprimer</a> </td>
 												
 											</tr>
                                         @endforeach

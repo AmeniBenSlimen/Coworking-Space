@@ -23,7 +23,6 @@
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Réclamation </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="{{route('FormReclamationAdmin' , Auth::user()->id)}}">Demande de Réclamation </a></li>
 								<li><a href="{{route('ListeReclamation')}}"> Liste des Réclamation </a></li>
 								
 							</ul>
@@ -32,7 +31,7 @@
 							<ul class="submenu_class" style="display: none;">
 								<li><a href="{{route('ListeAbonnement')}}">Liste des Demandes </a></li>
 								<li><a href="{{route('ArchiveAbonnement')}}"> Archive </a></li>
-								<li><a href="add-staff.html"> Add Staff </a></li>
+								
 							</ul>
 						</li>
 
@@ -76,7 +75,8 @@
 
 						<li class="submenu"> <a href="#"><i class="fas fa-envelope"></i> <span> Partenaire </span> <span class="menu-arrow"></span></a>
 									<ul class="submenu_class" style="display: none;">
-										
+									<li><a href="{{route ('formPartenaire')}}"> Ajouter partenaire </a></li>
+
 										<li><a href="{{route('listePartenaire')}}"> Liste des Partenaires </a></li>
 										
 										

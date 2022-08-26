@@ -100,14 +100,14 @@
                                                 <td>
                                                            @if ($rc->etat==0)
                                                            <button type="button" class="btn btn-danger">
-                                                            <a href = "{{route('attente', ['id'=> $rc->id])}}">non résolu </a>&nbsp;&nbsp;
+                                                            <a href = "{{route('attente', ['id'=> $rc->id])}}" onclick="return confirm('vous etes sur de mettre cette réclamation en état en cours');">non résolu </a>&nbsp;&nbsp;
                                                            </button>
 
                                                            @endif
 
                                                            @if ($rc->etat==1)
                                                            <button type="button" class="btn btn-warning">
-                                                            <a href = "{{route('accepter', ['id'=> $rc->id])}}">en cours  </a>&nbsp;&nbsp;
+                                                            <a href = "{{route('accepter', ['id'=> $rc->id])}}" onclick="return confirm('vous etes sur de mettre cette réclamation en état Traiter');">en cours  </a>&nbsp;&nbsp;
                                                            </button>
 
                                                            @endif
@@ -121,7 +121,7 @@
 
                                                          
                                                         </td>
-                                                        <td>  <a href="{{route('destroyReclamation', $rc->id)}}" type="button" class="btn btn-primary">Archive</a> </td>
+                                                        <td>  <a href="{{route('destroyReclamation', $rc->id)}}" type="button" class="btn btn-primary" onclick="return confirm('vous etes sur d''archiver cette réclamation');">Archive</a> </td>
                                                                                                    
                                             </tr>
                                           

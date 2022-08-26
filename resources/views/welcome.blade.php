@@ -40,13 +40,13 @@ body {
 	background-position: center center;
 }
 .carousel .first-slide {
-  background-image:url("images/3.jpeg")
+  background-image:url("images/images11.jpg")
 }
 .carousel .second-slide {
-  background-image:url("images/44.jpg")
+  background-image:url("images/images4.jpg")
 }
 .carousel .third-slide {
-  background-image:url("images/8.jpg")
+  background-image:url("images/comping.jpg")
 }
 /* MARKETING CONTENT
 -------------------------------------------------- */

@@ -45,7 +45,7 @@
 
 <div class="col-md-4">
 <div class="form-group">
-<p><img  class="avatar-img rounded-circle" src="{{asset('images/'. $abonnement->photo)}}" alt="" height="100px" width="100px" ></p>
+<p><img  class="avatar-img rounded-circle" src="{{asset('images/'. $abonnement->photo)}}" alt="" height="150px" width="150px" style="margin-left:150px" ></p>
 <label>Nom</label>
 <input id="nom" type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{$abonnement->nom}}" required autocomplete="nom" autofocus>
 </div>
@@ -72,6 +72,32 @@
 <div class="form-group">
 <label>Nmuéro de teléphone</label>
 <input type="telephone" name="telephone" id="telephone" class="form-control @error('telephone') is-invalid @enderror" value="{{$abonnement->telephone}}" required autocomplete="telephone" autofocus>
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+<label>Raison</label>
+<input type="text" name="raison" id="telephone" class="form-control @error('raison') is-invalid @enderror" value="{{$abonnement->raison}}" required autocomplete="telephone" autofocus>
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+<label>Date validate</label>
+<select name="date_validate"    class="form-control">
+<option value="" select>{{$abonnement->date_validate}}</option>
+	<option value="1 mois" name="date_validate" value="{{$abonnement->date_validate}}" >1 mois </option>
+	<option value="2 mois" name="date_validate"  value="{{$abonnement->date_validate}}">2 mois</option>
+	<option value="3 mois" name="date_validate" value="{{$abonnement->date_validate}}" >3 mois</option>
+	<option value="4 mois" name="date_validate" value="{{$abonnement->date_validate}}" >4 mois</option>
+	<option value="5 mois" name="date_validate" value="{{$abonnement->date_validate}}">5 mois</option>
+	<option value="6 mois" name="date_validate"value="{{$abonnement->date_validate}}" >6 mois</option>
+	<option value="7 mois" name="date_validate" value="{{$abonnement->date_validate}}">7 mois</option>
+	<option value="8 mois" name="date_validate" value="{{$abonnement->date_validate}}" >8 mois</option>
+	<option value="9 mois"name="date_validate" value="{{$abonnement->date_validate}}"> 9 mois</option>
+	<option value="10 mois"name="date_validate" value="{{$abonnement->date_validate}}">10 mois</option>
+	<option value="11 mois"name="date_validate" value="{{$abonnement->date_validate}}">11 mois</option>
+	<option value="12 mois"name="date_validate" value="{{$abonnement->date_validate}}">12 mois</option>
+</select>
 </div>
 </div>
 <div class="col-md-4">

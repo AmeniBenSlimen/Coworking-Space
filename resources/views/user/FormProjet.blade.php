@@ -111,5 +111,23 @@
 			});
 		});
 	</script>
+	<script>
+  var currentDateTime = new Date();
+var year = currentDateTime.getFullYear();
+var month = (currentDateTime.getMonth() + 1);
+var date = (currentDateTime.getDate() + 1);
+
+
+
+var dateTomorrow = year + "-" + month + "-" + date;
+var checkinElem = document.querySelector("#date_debut");
+var checkoutElem = document.querySelector("#date_fin");
+
+checkinElem.setAttribute("min", dateTomorrow);
+
+checkinElem.onchange = function () {
+    checkoutElem.setAttribute("min", this.value);
+}
+</script>
 </body>
 </html>

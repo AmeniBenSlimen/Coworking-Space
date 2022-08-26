@@ -10,14 +10,14 @@
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Abonnement </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
 								<li><a href="{{route('AbonnementForms', Auth::user()->id)}}"> Abonnement Forms  </a></li>
-                                <li><a href="{{route('ConsulterDemandeA',Auth::user()->id)}}"> Consulter Demande  </a></li>
+                                <li><a href="{{route('ListeDemandeA',Auth::user()->id)}}"> Consulter Demande  </a></li>
 								
 							</ul>
 						</li>
 						
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Réservation </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="">Voir Demande </a></li>
+								<li><a href="{{route('listeReservation')}}">Voir Demande </a></li>
 								
 							</ul>
 						</li>

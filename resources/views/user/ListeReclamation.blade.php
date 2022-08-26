@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<title>Hotel Dashboard Template</title>
+	<title>Espace admin</title>
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
@@ -47,7 +47,6 @@
 						<div class="col">
 							<div class="mt-5">
 								<h4 class="card-title float-left mt-2">Liste des Réclamation</h4>
-                                <a href="" class="btn btn-primary float-right veiwbutton ">Demande de Réclamation</a>
                             </div>
 						</div>
 					</div>
@@ -95,7 +94,7 @@
                                                 <td>{{$rc->description_panne}}</td>
                                                 <td>
                                                            @if ($rc->etat==0)
-                                                           <button type="button" class="btn btn-danger" >non résolu</button>
+                                                           <button type="button" class="btn btn-danger" onclick="return confirm('vous etes sur de mettre cette réservation en cours');" >non résolu</button>
                                                             @elseif($rc->etat==1)
                                                             <button type="button" class="btn btn-warning">en cours</button>
                                                             @else
@@ -105,7 +104,7 @@
 
                                                         </td>
                                                         <td>  <a href="{{route('editReclamation', $rc->id)}}" type="button" class="btn btn-primary"><i class="bi bi-pencil-fill">modifier</i></a> 
-                                                         <a href="{{route('deleteReclamationBD', $rc->id)}}"type="button" class="btn btn-danger" onClicK="return confirm('vous etez sur de supprimer la reclamation ? ');"><i class="bi bi-trash-fill">supprimer</i></a></td>
+                                                         <a href="{{route('deleteReclamationBD', $rc->id)}}"type="button" class="btn btn-danger" onClicK="return confirm('vous etes sur de supprimer cette reclamation ? ');"><i class="bi bi-trash-fill">supprimer</i></a></td>
                                                 
                                             </tr>
                                           

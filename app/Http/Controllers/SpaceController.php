@@ -86,7 +86,7 @@ class SpaceController extends Controller
         $space->description_space=$request->description_space;
         $space->update();
        
-        return redirect()->route('FormAddSpace')->with('success','Espace Modifier avec success');
+        return redirect()->back()->with('success','Espace Modifier avec success');
     
        }
        
@@ -119,13 +119,13 @@ class SpaceController extends Controller
             $image->image_espace=$filename;
         }
             $image->update();
-            return redirect()->route('ListeSpace')->with('success','Photo Modifier avec success');
+            return redirect()->back()->with('success','Photo Modifier avec success');
        }
 
        public function DeletePhotoSpaceBD($id){
            $image=PhotoEspace::where('id',$id)->first();
            $image->delete();
-           return redirect()->route('ListeSpace')->with('success','Espace Supprimer avec success');
+           return redirect()->back()->with('success','Image Supprimer avec success');
        }
 
        public function AddPhotoSpace($id){

@@ -88,7 +88,7 @@
                                                 <td>{{$cl->role}}</td>
                                                 <td><img class="avatar-img rounded-circle" src="{{asset('images/'.$cl->photo)}}" alt="" height="100px" width="100px" ></td>
                                                 <td><a href="{{route('FormeditClient' , $cl->id)}}" class="btn btn-primary">Modifier</a></td>
-                                                <td><a class="btn btn-xs btn-danger" href="{{route('DeleteClient', $cl->id)}}" >Supprimer</a> </td>
+                                                <td><a class="btn btn-xs btn-danger" href="{{route('DeleteClient', $cl->id)}}" onclick="return confirm('vous etes sur supprimer cette Client');" >Supprimer</a> </td>
 											</tr>
 											@endforeach
 										</tbody>

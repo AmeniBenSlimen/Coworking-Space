@@ -11,7 +11,7 @@
 						
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Réservation </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="">Voir Demande </a></li>
+								<li><a href="{{route('listeReservationMembre')}}">Voir Demande </a></li>
 								
 							</ul>
 						</li>

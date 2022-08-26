@@ -148,6 +148,7 @@ Route::get('/ProfileClient/{id}','App\Http\Controllers\ClientController@ProfileC
 Route::get('/FormUpdatePwClient','App\Http\Controllers\ClientController@FormUpdatePwClient')->name('FormUpdatePwClient');
 Route::post('/FormUpdatePwClientBD','App\Http\Controllers\ClientController@FormUpdatePwClientBD')->name('FormUpdatePwClientBD');
 
+
 //--------------------------------------------------------------------------------------------------------------//
                              //ROUTE DES Association //
 Route::get('/Association','App\Http\Controllers\AssociationController@Association')->name('Association');
@@ -156,7 +157,7 @@ Route::get('/Association','App\Http\Controllers\AssociationController@Associatio
                              //ROUTE DES ESPACE /
 Route::get('/FormAddSpace','App\Http\Controllers\SpaceController@FormAddSpace')->name('FormAddSpace');
 Route::post('/addSpaceBD','App\Http\Controllers\SpaceController@addSpaceBD')->name('addSpaceBD');
-Route::get('/AddPhotoSpace','App\Http\Controllers\SpaceController@AddPhotoSpace')->name('AddPhotoSpace');
+Route::get('/AddPhotoSpace/{id}','App\Http\Controllers\SpaceController@AddPhotoSpace')->name('AddPhotoSpace');
 Route::post('/AddPhotoSpaceBD','App\Http\Controllers\SpaceController@AddPhotoSpaceBD')->name('AddPhotoSpaceBD');
 Route::get('/ListeSpace','App\Http\Controllers\SpaceController@ListeSpace')->name('ListeSpace');
 Route::get('/FormeditSpace/{id}','App\Http\Controllers\SpaceController@FormeditSpace')->name('FormeditSpace');
@@ -166,7 +167,7 @@ Route::get('/VoirPhotoSpace/{id}','App\Http\Controllers\SpaceController@VoirPhot
 Route::get('/FormEditPhotoSpace/{id}','App\Http\Controllers\SpaceController@FormEditPhotoSpace')->name('FormEditPhotoSpace');
 Route::post('/UpdatePhotoSpaceBD','App\Http\Controllers\SpaceController@UpdatePhotoSpaceBD')->name('UpdatePhotoSpaceBD');
 Route::get('/DeletePhotoSpaceBD/{id}','App\Http\Controllers\SpaceController@DeletePhotoSpaceBD')->name('DeletePhotoSpaceBD');
-Route::get('/AddPhotoSpace/{id}','App\Http\Controllers\SpaceController@AddPhotoSpace')->name('AddPhotoSpace');
+Route::Post('/AddPhotoSpace/{id}','App\Http\Controllers\SpaceController@UpdatePhotoProjetBD')->name('UpdatePhotoProjetBD');
 
 //--------------------------------------------------------------------------------------------------------------//
                              //ROUTE ERREUR /
@@ -179,11 +180,16 @@ Route::get('/ListeMateriel','App\Http\Controllers\MaterielController@ListeMateri
 Route::get('/FormeditMateriel/{id}','App\Http\Controllers\MaterielController@FormeditMateriel')->name('FormeditMateriel');
 Route::Post('/UpdateMaterielBD','App\Http\Controllers\MaterielController@UpdateMaterielBD')->name('UpdateMaterielBD');
 Route::get('/DeleteMaterielBD/{id}','App\Http\Controllers\MaterielController@DeleteMaterielBD')->name('DeleteMaterielBD');
+
 //--------------------------------------------------------------------------------------------------------------//
                              //ROUTE GESTION Projet /
 
 Route::get('/FormeditProjet/{id}','App\Http\Controllers\ProjetController@Editprojet')->name('FormeditProjet');
 Route::get('/ListeImageProjet/{id}','App\Http\Controllers\ProjetController@ListeImageProjet')->name('ListeImageProjet');
+Route::get('/AddPhotoProjet/{id}','App\Http\Controllers\ProjetController@AddPhotoProjet')->name('AddPhotoProjet');
+Route::get('/FormEditPhotoProjet/{id}','App\Http\Controllers\ProjetController@FormEditPhotoProjet')->name('FormEditPhotoProjet');
+Route::Post('/UpdatePhotoProjetBD/{id}','App\Http\Controllers\ProjetController@UpdatePhotoProjetBD')->name('UpdatePhotoProjetBD');
+Route::get('/DeletImageProjet/{id}','App\Http\Controllers\ProjetController@DeletImageProjet')->name('DeletImageProjet');
 //--------------------------------------------------------------------------------------------------------------//
                              //ROUTE DES partenaires /
 Route::get('/formPartenaire','App\Http\Controllers\PartenaireController@formPartenaire')->name('formPartenaire');
@@ -202,8 +208,10 @@ Route::get('/FormReservation/{id}','App\Http\Controllers\ReservationController@F
 Route::get('/viewProjet','App\Http\Controllers\AffichageController@viewProjet')->name('viewProjet');
 //--------------------------------------------------------------------------------------------------------------//
                              //ROUTE DES reservation /
- Route::Post('/Reserver','App\Http\Controllers\ReservationController@Reserver')->name('Reserver');
+ Route::get('/ReserverEspace','App\Http\Controllers\ReservationController@ReserverEspace')->name('ReserverEspace');
  Route::get('/listeReservation','App\Http\Controllers\ReservationController@listeReservation')->name('listeReservation');
+ Route::get('/listeReservationMembre','App\Http\Controllers\ReservationController@listeReservationMembre')->name('listeReservationMembre');
+
  Route::get('/ListeDemandeR','App\Http\Controllers\ReservationController@ListeDemandeR')->name('ListeDemandeR');
  Route::get('/EditReservation/{id}','App\Http\Controllers\ReservationController@EditReservation')->name('EditReservation');
  Route::Post('/UpdateReservation/{id}','App\Http\Controllers\ReservationController@UpdateReservation')->name('UpdateReservation');

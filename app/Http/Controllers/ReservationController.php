@@ -24,7 +24,7 @@ class ReservationController extends Controller
   
 
 
-    public function Reserver(Request $request){
+    public function ReserverEspace(Request $request){
         $request->validate([
             'date_entre'=>['required','unique:reservations'],
             'date_sorti'=>['required','unique:reservations'],
@@ -43,14 +43,22 @@ class ReservationController extends Controller
         $reservation->etat=0;
         $reservation->space_id=$request->space;
         $reservation->user_id=$request->user;
+    
+
         $reservation->save();
         $reservation->envoyerEmail();
+        
         return redirect()->back()->with('success','reservation  effectue avec success');
         
     }
     public function listeReservation(){
         $reservation=Reservation::where('user_id',Auth::id())->get();
         return view ('client.consulterReservation',compact('reservation'));
+    }
+
+    public function listeReservationMembre(){
+        $reservation=Reservation::where('user_id',Auth::id())->get();
+        return view ('Membre.consulterReservation',compact('reservation'));
     }
 
 
@@ -99,18 +107,12 @@ class ReservationController extends Controller
 public function DeleteReservationBD($id){
     $reservation=Reservation::where('id',$id)->first();
     $reservation->delete();
-    return redirect()->route('listeReservation')->with('ErrorMessage', 'Reservation annuler');
+    return redirect()->back()->with('ErrorMessage', 'Reservation annuler');
 }
 
 
 
-public function deleteReservationA($id)
-{
-    $reservation = Reservation::find($id);
-         $reservation->etat = 3 ;
-         $reservation->save();
-         return redirect()->back();
-}
+
 public function destroyReservation($id)
 {
     $reservation = Reservation::find($id);

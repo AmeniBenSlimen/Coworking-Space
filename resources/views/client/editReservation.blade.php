@@ -107,7 +107,7 @@
 <div class="col-md-4">
 <div class="form-group">
 <label>Date entre</label>
-<input type="datetime-local" name="date_entre" id="date_entre"   class="form-control @error('date_entre') is-invalid @enderror" value="{{$reservation->date_entre}}" required autocomplete="date_entre" autofocus>
+<input type="datetime-local" name="date_entre" id="date_entre"   class="form-control @error('date_entre') is-invalid @enderror" value="" required autocomplete="date_entre" autofocus>{{$reservation->date_entre}}
 @error('date_entre')
      <span class="invalid-feedback" role="alert">
      <strong>{{ $message }}</strong>
@@ -119,7 +119,7 @@
 <div class="col-md-4">
 <div class="form-group">
 <label>Date Sortie</label>
-<input type="datetime-local" name="date_sorti" id="date_sorti" value="{{$reservation->date_sorti}}" class="form-control @error('date_sorti') is-invalid @enderror" required autocomplete="date_sorti" autofocus>
+<input type="datetime-local" name="date_sorti" id="date_sorti" value="" class="form-control @error('date_sorti') is-invalid @enderror" required autocomplete="date_sorti" autofocus>{{$reservation->date_sorti}}
 @error('date_sorti')
  <span class="invalid-feedback" role="alert">
  <strong>{{ $message }}</strong>

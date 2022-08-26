@@ -48,7 +48,7 @@ class ProjetController extends Controller
             $image->save();
           } 
         }
-       return redirect()->route('FormProjet')->with('success', 'Projet Ajouter avec succèss');
+       return redirect()->back()->with('success', 'Image Ajouter avec succèss');
 
     }
     public function listeProjet(){
@@ -111,12 +111,17 @@ class ProjetController extends Controller
 
    }
 
+   
    public function ListeImageProjet($id){
     
     $projet=Projet::where('id',$id)->first();
-    //$image=PhotoProjet::Join('projets')->select('url')->where('projets.id','=',DB::raw('photo_projets.projet_id'))->get();  
-      dd($image);
+    $image=PhotoProjet::where('projet_id',$id)->get();
     return view('user.ListeImageProjet',compact('projet','image'));
+   }
+
+   public function AddPhotoProjet($id){
+    $projet=Projet::where('id',$id)->first();
+    return view('user.addImageProjet',compact('projet'));
    }
    public function DeletProjet($id){
    
@@ -125,4 +130,30 @@ class ProjetController extends Controller
     return redirect()->route('listeProjet')->with('success', 'Projet supprimer avec succèss');
 
    }
+
+   public function FormEditPhotoProjet($id){
+    $image=PhotoProjet::where('id',$id)->first();
+    return view ('user.FormEditPhotoProjet',compact('image'));
+}
+
+public function UpdatePhotoProjetBD(Request $request){
+    $image=PhotoProjet::where('id',$request->id)->first();
+if($request->hasfile("url")){
+
+    $file=$request->file('url');
+    $ext=$file->getClientOriginalName();
+    $filename=time().'.'.$ext;
+    $file->move('images_projet/', $filename);
+    $image->url=$filename;
+}
+    $image->update();
+    return redirect()->back()->with('success','Photo Modifier avec success');
+}
+
+public function DeletImageProjet($id){
+   
+    $image=PhotoProjet::where('id',$id)->first();
+    $image->delete();
+    return redirect()->back()->with('success', 'Image supprimer avec succèss');
+}
 }

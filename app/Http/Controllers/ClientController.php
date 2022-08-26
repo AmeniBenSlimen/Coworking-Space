@@ -35,6 +35,8 @@ class ClientController extends Controller
         $abonnement->email=$request->email;
         $abonnement->telephone=$request->telephone;
         $abonnement->photo=$request->photo;
+        $abonnement->raison=$request->raison;
+        $abonnement->date_validate=$request->date_validate;
         $abonnement->etat=0;
         $abonnement->user_id=$request->user;
         if($request->hasfile('photo')){
@@ -48,8 +50,8 @@ class ClientController extends Controller
         return redirect()->back()->with('success','demande envoyer avec succes');
     }
 
-    public function ListeDemandeA($id){
-        $abonnement=User::where('id',$id)->first();
+    public function ListeDemandeA(){
+        $abonnement=Abonnement::where('user_id',Auth::id())->get();
         //dd($abonnement);
         return view('client.ConsulterDemandeA',compact('abonnement'));
     }
@@ -78,7 +80,7 @@ class ClientController extends Controller
             $abonnement->photo=$filename;
         } 
         $abonnement->update();
-        return redirect()->route('ConsulterDemandeA')->with('success','modification efectueé avec succes');
+        return redirect()->back()->with('success','modification efectueé avec succes');
 
     }
 

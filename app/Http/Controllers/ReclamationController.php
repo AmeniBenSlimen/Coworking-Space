@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Materiel;
 use App\Models\Reclamation;
 use Illuminate\Support\Facades\Gate;
 
@@ -17,7 +18,8 @@ class ReclamationController extends Controller
     public function FormReclamationAdmin($id){
         
         $user=User::where('id',$id)->first();
-        return view ('user.FormReclamationAdmin',compact('user'));
+        $materiel=Materiel::where('id',$id)->first();
+        return view ('user.FormReclamationAdmin',compact('user','materiel'));
     }
 
 
@@ -28,6 +30,7 @@ class ReclamationController extends Controller
          $reclamation->nom_materiel=$request->nom_materiel;
          $reclamation->description_panne=$request->description_panne;
          $reclamation->user_id=$request->user;
+         $reclamation->materiel_id=$request->materiel;
          $reclamation->etat=0;
          $reclamation->save();
 
@@ -91,9 +94,7 @@ class ReclamationController extends Controller
      }
      public function destroyReclamation($id)
      {
-        if (! Gate::allows('destroyReclamation')) {
-            abort(403);
-        }
+        
         $reclamation = Reclamation::find($id);
         $reclamation->delete();
         return redirect()->back();

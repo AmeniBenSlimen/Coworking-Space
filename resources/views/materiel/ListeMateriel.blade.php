@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<title>Hotel Dashboard Template</title>
+	<title>Espace admin</title>
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
@@ -48,7 +48,7 @@
 						<div class="col">
 							<div class="mt-5">
 								<h4 class="card-title float-left mt-2">Liste des Matériel</h4>
-                                <a href="{{route ('addUser')}}" class="btn btn-primary float-right veiwbutton ">Ajouter Utilisateurs</a>
+                               
                             </div>
 						</div>
 					</div>
@@ -87,7 +87,7 @@
                                                 <td>{{$m->description}}</td>
 												<td><a href="{{route('FormeditMateriel',$m->id)}}" class="btn btn-primary">Modifier</a>
                                                 <a class="btn btn-xs btn-danger" href="{{route('DeleteMaterielBD',$m->id)}}" onclick="return confirm('vous etes sur de supprimer cet materiel ?');" >Supprimer</a> </td>
-												
+												<td><td><a href="{{route('FormReclamationAdmin',$m->id)}}" class="btn btn-warning">Reclamer</a></td>
 											</tr>
 											
 											@endforeach

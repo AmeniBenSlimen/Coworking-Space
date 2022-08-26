@@ -12,7 +12,7 @@ class Reclamation extends Model
     use HasFactory;
     use SoftDeletes;
     protected $dates=['deleted_at'];
-    protected $fillable=['nom','code_serie','nom_materiel','description_panne','etat','user_id'];
+    protected $fillable=['nom','code_serie','nom_materiel','description_panne','etat','user_id','materiel_id'];
 
 
     

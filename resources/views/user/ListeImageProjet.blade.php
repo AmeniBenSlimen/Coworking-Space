@@ -4,26 +4,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-<title>Ajouter Membre</title>
+<title>Espace Administrateur</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
 
-<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
-<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
 
-<link rel="stylesheet" href="assets/css/feathericon.min.css">
-<link rel="stylesheet" href="assets/plugins/morris/morris.css">
-<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" href="{{asset('assets/css/feathericon.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/plugins/morris/morris.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}">
 
-<link rel="stylesheet" href="assets/css/style.css">
-
+<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
 <body>
-
 @include('admin.header')
 		@include('admin.menu')
+		
 <div class="page-wrapper">
 <div class="content container-fluid">
 <div class="page-header">
@@ -48,7 +47,7 @@
 											<tr style="background-color:white">
 												<th> ID</th>
 												<th> Images </th>
-												<th  colspan="2">Actions</th>
+												<th  colspan="3">Actions</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -56,9 +55,9 @@
                                                 @foreach($image as $img)
 												<td>{{$img->id}}</td>
                                                 <td><img src="{{asset('images_projet/'.$img->url)}}" alt="" height="200px" width="200px"></td>
-                           <td><a href="" class="btn btn-primary">Modifier</a></td>
-                           <td><a class="btn btn-xs btn-danger" href="" >Supprimer</a> </td>
-						   <td><a class="btn btn-xs btn-danger" style="background-color:#3BF911;border-color:#3BF911" href="" >Voir Images</a> </td>
+                           <td><a href="{{route('FormEditPhotoProjet',$img->id)}}" class="btn btn-primary">Modifier</a></td>
+                           <td><a class="btn btn-xs btn-danger" href="{{route('DeletImageProjet',$img->id)}}" onclick="return confirm('vous etes sur supprimer cette Image');" >Supprimer</a> </td>
+						 
 											</tr>
                                            @endforeach
 										</tbody>
@@ -72,19 +71,19 @@
 			
 			</div>
 	
-<script src="assets/js/jquery-3.5.1.min.js"></script>
+			<script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
 
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/moment.min.js"></script>
-<script src="assets/js/select2.min.js"></script>
+<script src="{{asset('assets/js/popper.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/js/moment.min.js')}}"></script>
+<script src="{{asset('assets/js/select2.min.js')}}"></script>
 
-<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="assets/plugins/raphael/raphael.min.js"></script>
+<script src="{{asset('assets/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
+<script src="{{asset('assets/plugins/raphael/raphael.min.js')}}"></script>
 
-<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
 
-<script src="assets/js/script.js"></script>
+<script src="{{asset('assets/js/script.js')}}"></script>
 <script>
 		$(function () {
 			$('#datetimepicker3').datetimepicker({
@@ -93,5 +92,3 @@
 			});
 		});
 	</script>
-</body>
-</html>
